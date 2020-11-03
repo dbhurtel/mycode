@@ -1,0 +1,37 @@
+print("""Welcome to Conversion Calculator\n
+select the measurement you want to convert:
+1. Temperature  2. Mass\n""")
+
+while True:
+    conversion_type = input("Enter the conversion type: ")
+
+    if conversion_type.upper() == "TEMPERATURE":
+        input_value = input("Input the temperature you like to convert? (e.g., 45F, 102C, 310k etc.) : ")
+
+        temp_value = int(input_value[:-1])
+        temp_type = input_value[-1]
+
+        if temp_type.upper() == "C":
+            conversion_degree = "celsius"
+            result1 = int(round((9 * temp_value) / 5 + 32))  # Fahrenheit
+            result2 = int(round(temp_value + 273.15))   # kelvin
+            conversion1 = "Fahrenheit"
+            conversion2 = "Kelvin"
+
+        elif temp_type.upper() == "F":
+            conversion_degree = "Fahrenheit"
+            result1 = int(round((temp_value - 32) * 5 / 9))   # celsius
+            result2 = int(round((temp_value - 32) * (5 / 9) + 273.15))  # kelvin
+            conversion1 = "Celsius"
+            conversion2 = "Kelvin"
+
+        elif temp_type.upper() == "K":
+            conversion_degree = "Kelvin"
+            result1 = int(round(temp_value - 273.15))  # celsius
+            result2 = int(round((temp_value - 273.15) * 9 / 5 + 32))  # Fahrenheit
+            conversion1 = "Celsius"
+            conversion2 = "Fahrenheit"
+
+        else:
+            print("Input valid conversion type!")
+            quit()
