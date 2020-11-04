@@ -9,5 +9,8 @@ if ans == "yes":
         print("Then don't worry")
 elif ans == "no":
         print("Then don't worry")
-
+elif ans=="q":
+    print("Have a good day")
+else:
+        print("This is not an option")
         
