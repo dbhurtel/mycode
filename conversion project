@@ -1,3 +1,4 @@
+
 print("""Welcome to Conversion Calculator\n
 select the measurement you want to convert:
 1. Temperature  2. Mass\n""")
@@ -35,3 +36,47 @@ while True:
         else:
             print("Input valid conversion type!")
             quit()
+        print(temp_value, conversion_degree, "=", result1, conversion1)
+        print(temp_value, conversion_degree, "=", result2, conversion2)
+        temp = input("Do you want to exit? (y/n): ")
+        if temp.upper() == "Y":
+            quit()
+
+    elif conversion_type.upper() == "MASS":
+        input_value = input("Input the mass you want to convert? (e.g., 5kg, 10lb, 15Oz etc.) : ")
+        mass_value = int(input_value[:-2])
+        mass_type = input_value[-2:]
+        if mass_type.upper() == "KG":
+            mass_conversion = "Kilogram"
+            result1 = int(round(mass_value * 2.205))  # Pound
+            result2 = int(round(mass_value * 35.274))  # Ounce
+            conversion1 = "Pound"
+            conversion2 = "Ounce"
+
+        elif mass_type.upper() == "LB":
+            mass_conversion = "Pound"
+            result1 = int(round(mass_value / 2.205))  # Kilogram
+            result2 = int(round(mass_value * 16))  # Ounce
+            conversion1 = "Kilogram"
+            conversion2 = "Ounce"
+
+        elif mass_type.upper() == "OZ":
+            mass_conversion = "Ounce"
+            result1 = int(round(mass_value / 35.274))  # Kilogram
+            result2 = int(round(mass_value / 16))  # Pound
+            conversion1 = "Kilogram"
+            conversion2 = "Pound"
+
+        else:
+            print("Input valid conversion type!")
+            quit()
+        print(mass_value, mass_conversion, "=", result1, conversion1)
+        print(mass_value, mass_conversion, "=", result2, conversion2)
+        temp = input("Do you want to exit? (y/n): ")
+        if temp.upper() == "Y":
+            quit()
+
+    else:
+        print("Input valid conversion type!")
+
+
