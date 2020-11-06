@@ -1,12 +1,13 @@
 
 print("""Welcome to Conversion Calculator\n
 select the measurement you want to convert:
-1. Temperature  2. Mass\n""")
+1. Temperature  2. Mass 3. Length\n""")
+
 
 while True:
     conversion_type = input("Enter the conversion type: ")
 
-    if conversion_type.upper() == "TEMPERATURE":
+    if conversion_type == "1":
         input_value = input("Input the temperature you like to convert? (e.g., 45F, 102C, 310k etc.) : ")
 
         temp_value = int(input_value[:-1])
@@ -15,13 +16,13 @@ while True:
         if temp_type.upper() == "C":
             conversion_degree = "celsius"
             result1 = int(round((9 * temp_value) / 5 + 32))  # Fahrenheit
-            result2 = int(round(temp_value + 273.15))   # kelvin
+            result2 = int(round(temp_value + 273.15))  # kelvin
             conversion1 = "Fahrenheit"
             conversion2 = "Kelvin"
 
         elif temp_type.upper() == "F":
             conversion_degree = "Fahrenheit"
-            result1 = int(round((temp_value - 32) * 5 / 9))   # celsius
+            result1 = int(round((temp_value - 32) * 5 / 9))  # celsius
             result2 = int(round((temp_value - 32) * (5 / 9) + 273.15))  # kelvin
             conversion1 = "Celsius"
             conversion2 = "Kelvin"
@@ -38,11 +39,11 @@ while True:
             quit()
         print(temp_value, conversion_degree, "=", result1, conversion1)
         print(temp_value, conversion_degree, "=", result2, conversion2)
-        temp = input("Do you want to exit? (y/n): ")
-        if temp.upper() == "Y":
+        exit1 = input("Do you want to exit? (y/n): ")
+        if exit1.upper() == "Y":
             quit()
 
-    elif conversion_type.upper() == "MASS":
+    elif conversion_type == "2":
         input_value = input("Input the mass you want to convert? (e.g., 5kg, 10lb, 15Oz etc.) : ")
         mass_value = int(input_value[:-2])
         mass_type = input_value[-2:]
@@ -72,11 +73,51 @@ while True:
             quit()
         print(mass_value, mass_conversion, "=", result1, conversion1)
         print(mass_value, mass_conversion, "=", result2, conversion2)
-        temp = input("Do you want to exit? (y/n): ")
-        if temp.upper() == "Y":
+        exit1 = input("Do you want to exit? (y/n): ")
+        if exit1.upper() == "Y":
+            quit()
+
+    elif conversion_type == "3":
+        input_value = input("Input the length you want to convert? (e.g., 15km, 30mi, 25yd etc.) : ")
+        length_value = int(input_value[:-2])
+        length_type = input_value[-2:]
+        if length_type.upper() == "KM":
+            length_conversion = "Kilometer"
+            result1 = float(round((length_value / 1.609), 2))  # Mile
+            result2 = float(round((length_value * 1094), 2))  # Yard
+            conversion1 = "Mile"
+            conversion2 = "Yard"
+
+        elif length_type.upper() == "MI":
+            length_conversion = "Mile"
+            result1 = float(round((length_value * 1.609), 2))  # Kilometer
+            result2 = float(round((length_value * 1760), 2))  # Yard
+            conversion1 = "Kilometer"
+            conversion2 = "Yard"
+
+        elif length_type.upper() == "YD":
+            length_conversion = "Yard"
+            result1 = float(round((length_value / 1094), 2))  # Kilometer
+            result2 = float(round((length_value / 1760), 2))  # Mile
+            conversion1 = "Kilometer"
+            conversion2 = "Mile"
+
+        else:
+            print("Input valid conversion type!")
+            quit()
+        print(length_value, length_conversion, "=", result1, conversion1)
+        print(length_value, length_conversion, "=", result2, conversion2)
+        exit1 = input("Do you want to exit? (y/n): ")
+        while exit1.upper() == "Y":
             quit()
 
     else:
         print("Input valid conversion type!")
+
+
+
+
+
+
 
 
